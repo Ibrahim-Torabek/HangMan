@@ -3,9 +3,13 @@ import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
-public class Samlpe extends Application {
+public class Main extends Application {
     public static void main(String[] args) {
-        Application.launch(args);
+
+        System.exit(0);
+
+        //Application.launch(args);
+
     }
 
 
