@@ -22,17 +22,23 @@ public class Main extends Application {
 
                 guess = hangMan.checkWord(userInput);
 
-                if (guess == -1) {
-                    System.out.println(userInput + " is already in the word");
-                    continue;
+                switch (guess){
+                    case 1:
+                        System.out.println("You guessed a letter: " + userInput);
+                        break;
 
-                } else if (guess == 0) {
-                    System.out.println(userInput + " is not in the word.");
+                    case 0:
+                        System.out.println(userInput + " is not in the word.");
+                        break;
+
+                    case -1:
+                        System.out.println(userInput + " is already in the word");
                 }
+
             } while (hangMan.getStatus());
 
             System.out.println();
-            System.out.println("The word is " + String.valueOf(hangMan.getSelectedWord()) + ". You missed " + hangMan.getMissed() + " times.");
+            System.out.println("The word is \"" + String.valueOf(hangMan.getSelectedWord()) + "\". You missed " + hangMan.getMissed() + " times.");
 
 
             System.out.print("Do you want to guess another word? Enter y to play again > ");

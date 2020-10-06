@@ -15,6 +15,11 @@ public class HangMan {
         checkWord('*');
     }
 
+
+    /**
+     * Randomly select a string from string array, and return it
+     * @return return the string as a char array
+     */
     public char[] wordSelect(){
         String[] words = {"hello", "good", "program","oolllpp","java",
                 "array", "string", "class", "chapter", "book",
@@ -24,6 +29,14 @@ public class HangMan {
         return words[r.nextInt(words.length)].toCharArray();
     }
 
+    /**
+     * check a given character from a char array, if exit, put it into the userWord array.
+     * it will initial the userWord by star(*)s when the third parameter is '*'
+     *                 is exist in the first parameter, put that letter into same position in second parameter (userWord).
+     * @param userInput receive a letter which is typed by user.
+     *                  - if it is '*', this function will initial userWord by '****"
+     * @return return guessed status: 1 for guessed, 0 for incorrect and -1 for exist.
+     */
     public int checkWord(char userInput){
         int remain = 0;
 
@@ -69,7 +82,13 @@ public class HangMan {
         return 1;
     }
 
+    /**
+     * Determine if the guessing loop should stop.
+     * @return true or false.
+     *    Note: This is not a getter method.
+     */
     public boolean getStatus(){
+        // if guessed all letters, or missed more than 6 times, quit the loop.
         if (guessed == selectedWord.length || missed >=6)
             return false;
 
