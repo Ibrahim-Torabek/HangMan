@@ -70,7 +70,7 @@ public class HangMan {
     }
 
     public boolean getStatus(){
-        if (guessed == selectedWord.length)
+        if (guessed == selectedWord.length || missed >=6)
             return false;
 
         return true;
