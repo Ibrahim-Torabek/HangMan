@@ -3,9 +3,17 @@ import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
+import java.util.Scanner;
+
 public class Main extends Application {
     public static void main(String[] args) {
 
+        Scanner s = new Scanner(System.in);
+        char userInput = 'n';
+
+
+
+        s.close();
         System.exit(0);
 
         //Application.launch(args);

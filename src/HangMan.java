@@ -68,4 +68,23 @@ public class HangMan {
 
         return 1;
     }
+
+    public boolean getStatus(){
+        if (guessed == selectedWord.length)
+            return false;
+
+        return true;
+    }
+
+    public char[] getUserWord() {
+        return userWord;
+    }
+
+    public String getSelectedWord() {
+        return String.valueOf(selectedWord);
+    }
+
+    public int getMissed() {
+        return missed;
+    }
 }
