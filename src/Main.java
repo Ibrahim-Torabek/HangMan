@@ -23,15 +23,15 @@ public class Main extends Application {
                 guess = hangMan.checkWord(userInput);
 
                 switch (guess){
-                    case 1:
+                    case HangMan.GUESSED_CORRECT:
                         System.out.println("You guessed a letter: " + userInput);
                         break;
 
-                    case 0:
+                    case HangMan.GUESSED_WRONG:
                         System.out.println(userInput + " is not in the word.");
                         break;
 
-                    case -1:
+                    case HangMan.GUESSED_ALREADY_EXIST:
                         System.out.println(userInput + " is already in the word");
                 }
 

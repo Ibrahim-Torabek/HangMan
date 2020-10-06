@@ -1,6 +1,10 @@
 import java.util.Random;
 
 public class HangMan {
+    public final static int GUESSED_WRONG = 0;
+    public final static int GUESSED_ALREADY_EXIST = -1;
+    public final static int GUESSED_CORRECT = 1;
+
     private char[] selectedWord; //  = wordSelect();
     private char[] userWord; //= new char[selectedWord.length];
     private int guessed;
