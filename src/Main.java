@@ -11,10 +11,19 @@ public class Main extends Application {
         Scanner s = new Scanner(System.in);
         char userInput = 'n';
 
+
         do {
             int guess = 0;
 
-            HangMan hangMan = new HangMan();
+
+            for(int i = 0; i < WordTopics.getTopics().length; i++){
+                System.out.println(String.valueOf(i +1) + ") " + WordTopics.topics[i][0]);
+            }
+            System.out.print("Please  select a topic to guess;");
+
+
+            HangMan hangMan = new HangMan(WordTopics.wordSelect(s.nextInt() - 1));
+            s.nextLine();
 
             do{
                 System.out.print("(Guess) Enter a letter in word " + String.valueOf(hangMan.getUserWord()) + " > ");

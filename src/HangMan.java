@@ -10,9 +10,9 @@ public class HangMan {
     private int guessed;
     private int missed;
 
-    public HangMan() {
-        selectedWord = wordSelect();
-        userWord = new char[selectedWord.length];
+    public HangMan(char [] selectedWord) {
+        this.selectedWord = selectedWord;
+        userWord = new char[this.selectedWord.length];
         guessed = 0;
         missed = 0;
 
