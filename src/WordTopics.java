@@ -50,8 +50,10 @@ public class WordTopics {
      */
     public char[] wordSelect(int topic){
         Random r = new Random();
+        int wordCount = topics.get(topic).size() - 1;
+        //System.out.println(wordCount);
 
-        selectedTopic = topics.get(topic).get(r.nextInt(topics.get(topic).size()) + 1).toCharArray();
+        selectedTopic = topics.get(topic).get(r.nextInt(wordCount) + 1).toCharArray();
         return selectedTopic;
     }
 
