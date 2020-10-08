@@ -1,6 +1,9 @@
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.Scanner;
 
 public class WordTopics {
 //    public static String[][] topics = {
@@ -12,18 +15,27 @@ public class WordTopics {
     private ArrayList<List<String>> topics = new ArrayList<>();
 
     public WordTopics() {
-        ArrayList<String> topic = new ArrayList<>();
 
-        topic.add("Computer Words");
-        topic.add("java");
-        topic.add("android");
-        topic.add("swift");
-        topics.add(topic);
-        topic.add("General Words");
-        topic.add("hello");
-        topic.add("good");
-        topic.add("morning");
-        topics.add(topic);
+
+        int i =1;
+        do{
+            ArrayList<String> topic = new ArrayList<>();
+            String fileName = i + ".txt";
+            File file = new File(fileName);
+
+            try {
+                Scanner fileScanner = new Scanner(file);
+
+                while (fileScanner.hasNextLine()){
+                    topic.add(fileScanner.nextLine());
+                }
+            } catch (FileNotFoundException e) {
+                //e.printStackTrace();
+                break;
+            }
+            topics.add(topic);
+            i++;
+        } while (i < 10);
 
     }
 
