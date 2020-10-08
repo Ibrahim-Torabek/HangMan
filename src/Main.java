@@ -20,8 +20,8 @@ public class Main extends Application {
             HangMan hangMan;
 
             // Display topics from WordTopics class.
-            for(int i = 0; i < wordTopics.getTopics().length; i++){
-                System.out.println(String.valueOf(i +1) + ") " + wordTopics.getTopics()[i]);
+            for(int i = 0; i < wordTopics.getTopicAmount(); i++){
+                System.out.println(String.valueOf(i +1) + ") " + wordTopics.getTopic(i));
             }
             System.out.print("Please  select a topic to guess;");
 
@@ -29,11 +29,11 @@ public class Main extends Application {
 
             // Check if the user input is valid.
             // If entered character '1' to the length of the topic is correct.
-            if (userInput >= 49 && userInput < 49 + wordTopics.getTopics().length){
+            if (userInput >= 49 && userInput < 49 + wordTopics.getTopicAmount()){
                 hangMan = new HangMan(wordTopics.wordSelect(userInput - 49));
             } else {
                 // if is not correct, continue the loop.
-                System.out.println("Please select a number from 1 to " + wordTopics.getTopics().length);
+                System.out.println("Please select a number from 1 to " + wordTopics.getTopicAmount());
                 userInput = 'y'; // Because the loop condition is character 'y', set the userInput variable to 'y'
                 continue;
             }

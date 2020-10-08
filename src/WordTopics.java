@@ -17,9 +17,9 @@ public class WordTopics {
     public WordTopics() {
 
 
-        int i =1;
+        int i =1;  // To check the file name
         do{
-            ArrayList<String> topic = new ArrayList<>();
+            ArrayList<String> topic = new ArrayList<>();  // Save each topic as an ArrayList
             String fileName = i + ".txt";
             File file = new File(fileName);
 
@@ -31,11 +31,14 @@ public class WordTopics {
                 }
             } catch (FileNotFoundException e) {
                 //e.printStackTrace();
+
+                // If file doesn't exist, quit the loop
                 break;
             }
-            topics.add(topic);
+
+            topics.add(topic);  // Add read topic to the topics list.
             i++;
-        } while (i < 10);
+        } while (true);  // loop the read file scope until file does not exist.
 
     }
 
@@ -58,7 +61,14 @@ public class WordTopics {
             topics[i] = this.topics.get(i).get(0);
 
         return topics;
+    }
 
+    public  int getTopicAmount(){
+        return topics.size();
+    }
+
+    public String getTopic(int topic){
+        return topics.get(topic).get(0);
     }
 
 }
