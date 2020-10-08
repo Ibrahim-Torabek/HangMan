@@ -27,6 +27,8 @@ public class Main extends Application {
 
             userInput = s.nextLine().toCharArray()[0];
 
+            String selectedTopic = wordTopics.getTopic(userInput - 49);
+
             // Check if the user input is valid.
             // If entered character '1' to the length of the topic is correct.
             if (userInput >= 49 && userInput < 49 + wordTopics.getTopicAmount()){
@@ -39,7 +41,7 @@ public class Main extends Application {
             }
 
             do{
-                System.out.print("(Guess) Enter a letter in word " + String.valueOf(hangMan.getUserWord()) + " > ");
+                System.out.print("(" + selectedTopic + ") Enter a letter in word " + String.valueOf(hangMan.getUserWord()) + " > ");
                 userInput = s.nextLine().toCharArray()[0];
 
                 guess = hangMan.checkWord(userInput);
