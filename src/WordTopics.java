@@ -1,4 +1,6 @@
 import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class WordTopics {
@@ -8,6 +10,23 @@ public class WordTopics {
             {"Manga Characters", "naruto","sasukei","hinata","neji","kakashi"}
     };
 
+    private static ArrayList<List<String>> newTopics = new ArrayList<>();
+
+    public WordTopics() {
+        ArrayList<String> topic = new ArrayList<>();
+
+        topic.add("Computer Words");
+        topic.add("java");
+        topic.add("android");
+        topic.add("swift");
+        newTopics.add(topic);
+        topic.add("General Words");
+        topic.add("hello");
+        topic.add("good");
+        topic.add("morning");
+        newTopics.add(topic);
+
+    }
 
     /**
      * Randomly select a string from string array, and return it
@@ -15,23 +34,20 @@ public class WordTopics {
      * @return return the string as a char array
      */
     public static char[] wordSelect(int topic){
-
         Random r = new Random();
 
-        return topics[topic][r.nextInt(topics[topic].length)].toCharArray();
+        return newTopics.get(topic).get(r.nextInt(3) + 1).toCharArray();
     }
 
     public static String[] getTopics(){
-        int length = WordTopics.topics.length;
+        int length = newTopics.size();
         String topics[] = new String[length];
 
         for(int i = 0; i < length; i++)
-            topics[i] = WordTopics.topics[i][0];
+            topics[i] = newTopics.get(i).get(0);
 
         return topics;
 
     }
-    public static void printWord(){
-        System.out.println(topics[1][0] + String.valueOf(topics.length));
-    }
+
 }
