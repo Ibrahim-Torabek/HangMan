@@ -58,7 +58,7 @@ public class HangMan {
         for(int i = 0; i < userWord.length; i++){
             if (userWord[i] == userInput) {
 
-                return -1;
+                return HangMan.GUESSED_ALREADY_EXIST;
             }
         }
 
@@ -78,12 +78,12 @@ public class HangMan {
 
         if(guessed == selectedWord.length - remain) {
             missed++;
-            return 0;
+            return HangMan.GUESSED_WRONG;
         }
 
         guessed = selectedWord.length - remain;
 
-        return 1;
+        return HangMan.GUESSED_CORRECT;
     }
 
     /**

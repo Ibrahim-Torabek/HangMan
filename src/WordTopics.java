@@ -13,6 +13,7 @@ public class WordTopics {
 //    };
 
     private ArrayList<List<String>> topics = new ArrayList<>();
+    private char[] selectedTopic;
 
     public WordTopics() {
 
@@ -27,7 +28,7 @@ public class WordTopics {
                 Scanner fileScanner = new Scanner(file);
 
                 while (fileScanner.hasNextLine()){
-                    topic.add(fileScanner.nextLine());
+                    topic.add(fileScanner.nextLine().toUpperCase());
                 }
             } catch (FileNotFoundException e) {
                 //e.printStackTrace();
@@ -50,7 +51,8 @@ public class WordTopics {
     public char[] wordSelect(int topic){
         Random r = new Random();
 
-        return topics.get(topic).get(r.nextInt(3) + 1).toCharArray();
+        selectedTopic = topics.get(topic).get(r.nextInt(topics.get(topic).size()) + 1).toCharArray();
+        return selectedTopic;
     }
 
     public String[] getTopics(){
@@ -71,4 +73,7 @@ public class WordTopics {
         return topics.get(topic).get(0);
     }
 
+    public char[] getSelectedTopic() {
+        return selectedTopic;
+    }
 }
