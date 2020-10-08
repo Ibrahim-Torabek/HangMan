@@ -9,21 +9,31 @@ public class Main extends Application {
     public static void main(String[] args) {
 
         Scanner s = new Scanner(System.in);
-        char userInput = 'n';
+        char userInput;
 
 
         do {
-            int guess = 0;
+            int guess;
+            HangMan hangMan;
 
-
+            // Display topics from WordTopics class.
             for(int i = 0; i < WordTopics.getTopics().length; i++){
                 System.out.println(String.valueOf(i +1) + ") " + WordTopics.topics[i][0]);
             }
             System.out.print("Please  select a topic to guess;");
 
+            userInput = s.nextLine().toCharArray()[0];
 
-            HangMan hangMan = new HangMan(WordTopics.wordSelect(s.nextInt() - 1));
-            s.nextLine();
+            // Check if the user input is valid.
+            // If entered character '1' to the length of the topic is correct.
+            if (userInput >= 49 && userInput < 49 + WordTopics.topics.length){
+                hangMan = new HangMan(WordTopics.wordSelect(userInput - 49));
+            } else {
+                // if is not correct, continue the loop.
+                System.out.println("Please select a number from 1 to " + WordTopics.topics.length);
+                userInput = 'y'; // Because the loop condition is character 'y', set the userInput variable to 'y'
+                continue;
+            }
 
             do{
                 System.out.print("(Guess) Enter a letter in word " + String.valueOf(hangMan.getUserWord()) + " > ");
@@ -46,8 +56,8 @@ public class Main extends Application {
 
             } while (hangMan.getStatus());
 
-            System.out.println();
-            System.out.println("The word is \"" + String.valueOf(hangMan.getSelectedWord()) + "\". You missed " + hangMan.getMissed() + " times.");
+
+            System.out.println("\nThe word is \"" + String.valueOf(hangMan.getSelectedWord()) + "\". You missed " + hangMan.getMissed() + " times.");
 
 
             System.out.print("Do you want to guess another word? Enter y to play again > ");
@@ -56,6 +66,8 @@ public class Main extends Application {
         } while (userInput == 'y');
 
         s.close();
+
+        // Because the class extended from application class, exit the program manually.
         System.exit(0);
 
         //Application.launch(args);
