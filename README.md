@@ -7,11 +7,11 @@
 ## Table of contents
 * [Description](#description)
 * [Console Mode](#console-mode)
-* [GUI Mode](#gui-mode:)
+* [GUI Mode](#gui-mode)
 
 
 ## Description
-This is a hangman project. This project includes two modes: 
+This is a hangman project that written by Java. This project includes two modes: 
 Console and GUI. Only the compiler can switch the two modes of program.<br>
 Console Mode: In main method of program, there are two lines:<br>
         
@@ -25,6 +25,12 @@ If we commit first line as <br>
 // gameConsole();<br>
 Program will invode Application.launch() function and starts to 
 go to JavaFX GUI program.
+
+### Note:
+Player can manage their own categories and words by managing files.
+They can add categories by gradually increase the number of file name. 
+For example: 1.txt, 2.txt, 3.txt, ...., 10.txt etc. The first line of
+a file is category name, like: general words, computer words etc.
 
 
 ## Console Mode
