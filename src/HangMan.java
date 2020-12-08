@@ -43,6 +43,7 @@ public class HangMan {
      */
     public int checkWord(char userInput){
         int remain = 0;
+        userInput = Character.toUpperCase(userInput);
 
         // Initial
         if (userInput == '*'){
